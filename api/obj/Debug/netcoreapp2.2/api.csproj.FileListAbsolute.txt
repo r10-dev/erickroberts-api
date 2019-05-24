@@ -1,0 +1,14 @@
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/bin/Debug/netcoreapp2.2/api.deps.json
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/bin/Debug/netcoreapp2.2/api.runtimeconfig.json
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/bin/Debug/netcoreapp2.2/api.runtimeconfig.dev.json
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/bin/Debug/netcoreapp2.2/api.dll
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/bin/Debug/netcoreapp2.2/api.pdb
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/obj/Debug/netcoreapp2.2/api.csprojAssemblyReference.cache
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/obj/Debug/netcoreapp2.2/api.csproj.CoreCompileInputs.cache
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/obj/Debug/netcoreapp2.2/api.RazorAssemblyInfo.cache
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/obj/Debug/netcoreapp2.2/api.RazorAssemblyInfo.cs
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/obj/Debug/netcoreapp2.2/api.AssemblyInfoInputs.cache
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/obj/Debug/netcoreapp2.2/api.AssemblyInfo.cs
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/obj/Debug/netcoreapp2.2/api.RazorTargetAssemblyInfo.cache
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/obj/Debug/netcoreapp2.2/api.dll
+/media/erick/ExtraDrive1/projects/erickroberts-api/api/obj/Debug/netcoreapp2.2/api.pdb
