@@ -1,3 +1,4 @@
-test/bin/Debug/*
-api/bin/Debug/*
-test/obj/*
+**/bin
+appsettings.test.json
+appsettings.json
+**/obj
