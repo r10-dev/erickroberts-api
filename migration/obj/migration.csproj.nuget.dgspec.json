@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "/media/erick/ExtraDrive1/projects/erickroberts-api/migration/migration.csproj": {}
+  },
+  "projects": {
+    "/media/erick/ExtraDrive1/projects/erickroberts-api/migration/migration.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/media/erick/ExtraDrive1/projects/erickroberts-api/migration/migration.csproj",
+        "projectName": "migration",
+        "projectPath": "/media/erick/ExtraDrive1/projects/erickroberts-api/migration/migration.csproj",
+        "packagesPath": "/home/erick/.nuget/packages/",
+        "outputPath": "/media/erick/ExtraDrive1/projects/erickroberts-api/migration/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/erick/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
+            "dbup-postgresql": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "npgsql": {
+              "target": "Package",
+              "version": "[4.0.7, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

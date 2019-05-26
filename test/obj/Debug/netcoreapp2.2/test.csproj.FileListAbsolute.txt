@@ -12,3 +12,7 @@
 /media/erick/ExtraDrive1/projects/erickroberts-api/test/obj/Debug/netcoreapp2.2/test.AssemblyInfo.cs
 /media/erick/ExtraDrive1/projects/erickroberts-api/test/obj/Debug/netcoreapp2.2/test.dll
 /media/erick/ExtraDrive1/projects/erickroberts-api/test/obj/Debug/netcoreapp2.2/test.pdb
+/media/erick/ExtraDrive1/projects/erickroberts-api/test/bin/Debug/netcoreapp2.2/api.dll
+/media/erick/ExtraDrive1/projects/erickroberts-api/test/bin/Debug/netcoreapp2.2/api.pdb
+/media/erick/ExtraDrive1/projects/erickroberts-api/test/obj/Debug/netcoreapp2.2/test.csproj.CopyComplete
+/media/erick/ExtraDrive1/projects/erickroberts-api/test/bin/Debug/netcoreapp2.2/appsettings.test.json

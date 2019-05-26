@@ -1,0 +1,3 @@
+test/bin/Debug/*
+api/bin/Debug/*
+test/obj/*

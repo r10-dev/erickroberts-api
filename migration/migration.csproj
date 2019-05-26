@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+    <PackageReference Include="dbup-postgresql" Version="4.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="npgsql" Version="4.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="scripts\001_author_create.sql" />
+    <EmbeddedResource Include="scripts\008_author_seed.sql" />
+    <EmbeddedResource Include="scripts\002_content_create.sql" />
+    <EmbeddedResource Include="scripts\009_content_seed.sql" />
+    <EmbeddedResource Include="scripts\003_user_create.sql" />
+    <EmbeddedResource Include="scripts\010_user_seed.sql" />
+    <EmbeddedResource Include="scripts\004_user-role_create.sql" />
+    <EmbeddedResource Include="scripts\011_user-role_seed.sql" />
+    <EmbeddedResource Include="scripts\005_roles_create.sql" />
+    <EmbeddedResource Include="scripts\012_roles_seed.sql" />
+    <EmbeddedResource Include="scripts\006_content-tags_create.sql" />
+    <EmbeddedResource Include="scripts\013_content-tags_seed.sql" />
+    <EmbeddedResource Include="scripts\007_comments_create.sql" />
+    <EmbeddedResource Include="scripts\014_comments_seed.sql" />
+  </ItemGroup>
+
+</Project>

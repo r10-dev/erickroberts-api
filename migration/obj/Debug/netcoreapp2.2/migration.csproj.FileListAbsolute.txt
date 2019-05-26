@@ -1,0 +1,11 @@
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/obj/Debug/netcoreapp2.2/migration.csprojAssemblyReference.cache
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/obj/Debug/netcoreapp2.2/migration.csproj.CoreCompileInputs.cache
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/obj/Debug/netcoreapp2.2/migration.AssemblyInfoInputs.cache
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/obj/Debug/netcoreapp2.2/migration.AssemblyInfo.cs
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/bin/Debug/netcoreapp2.2/migration.deps.json
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/bin/Debug/netcoreapp2.2/migration.runtimeconfig.json
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/bin/Debug/netcoreapp2.2/migration.runtimeconfig.dev.json
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/bin/Debug/netcoreapp2.2/migration.dll
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/bin/Debug/netcoreapp2.2/migration.pdb
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/obj/Debug/netcoreapp2.2/migration.dll
+/media/erick/ExtraDrive1/projects/erickroberts-api/migration/obj/Debug/netcoreapp2.2/migration.pdb
