@@ -8,6 +8,7 @@ namespace api.dbl.repo
     using System.Data;
     using Npgsql;
     using Microsoft.Extensions.Logging;
+    using Newtonsoft.Json;
 
     public class RoleRepo : IRepository<Role>
     {
@@ -28,11 +29,15 @@ namespace api.dbl.repo
 
         public void Add(Role item)
         {
-            using (IDbConnection dbConnection = Connection)
+
+            using (NpgsqlConnection dbConnection = new NpgsqlConnection(connectionString))
             {
+
+                SqlMapper.AddTypeHandler(new RolePermissionTypeHandler());
+
                 dbConnection.Open();
-                dbConnection.Execute(@"INSERT INTO er.Role (title, permission) 
-                                    VALUES(@role, @title, @permission)", item);
+                dbConnection.Execute(@"INSERT INTO er.Role (title, permissions) 
+                                    VALUES(@_title, @_permissions::json)", new { _title = item.title, _permissions = item.permissions });
             }
 
         }
@@ -55,7 +60,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Role>("SELECT * FROM Role WHERE Roleid = @Id", new { Id = id }).FirstOrDefault();
+                return dbConnection.Query<Role>("SELECT * FROM er.Role WHERE Roleid = @Id", new { Id = id }).FirstOrDefault();
             }
         }
 
@@ -64,7 +69,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("DELETE FROM Role WHERE Roleid=@Id", new { Id = id });
+                dbConnection.Execute("DELETE FROM er.Role WHERE Roleid=@Id", new { Id = id });
             }
         }
 
@@ -72,8 +77,26 @@ namespace api.dbl.repo
         {
             using (IDbConnection dbConnection = Connection)
             {
+                SqlMapper.AddTypeHandler(new RolePermissionTypeHandler());
                 dbConnection.Open();
-                dbConnection.Query("UPDATE Role SET title = @title,  permission = @permission WHERE Roleid = @Id", item);
+                dbConnection.Query("UPDATE er.Role SET title = @_title,  permissions = @_permission::json WHERE Roleid = @roleid", new { _title = item.title, _permission = item.permissions });
+            }
+        }
+
+        public string ConvertPermissions(List<RolePermissions> list)
+        {
+            return JsonConvert.SerializeObject(list);
+        }
+
+        public class RolePermissionTypeHandler : SqlMapper.TypeHandler<List<RolePermissions>>
+        {
+            public override List<RolePermissions> Parse(object value)
+            {
+                return JsonConvert.DeserializeObject<List<RolePermissions>>(value.ToString());
+            }
+            public override void SetValue(System.Data.IDbDataParameter parameter, List<RolePermissions> value)
+            {
+                parameter.Value = JsonConvert.SerializeObject(value);
             }
         }
     }

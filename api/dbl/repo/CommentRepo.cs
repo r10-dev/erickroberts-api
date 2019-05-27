@@ -32,7 +32,7 @@ namespace api.dbl.repo
             {
                 dbConnection.Open();
                 dbConnection.Execute(@"INSERT INTO er.comment(shorttext, body, userid, contentid)
-                                    VALUES(@shorttext,@body,@userid,@contentid", item);
+                                    VALUES(@shorttext,@body,@userid,@contentid)", item);
             }
 
         }
@@ -55,7 +55,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Comment>("SELECT * FROM Comment WHERE commentid = @Id", new { Id = id }).FirstOrDefault();
+                return dbConnection.Query<Comment>("SELECT * FROM er.Comment WHERE commentid = @Id", new { Id = id }).FirstOrDefault();
             }
         }
 
@@ -64,7 +64,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("DELETE FROM Comment WHERE commentid=@Id", new { Id = id });
+                dbConnection.Execute("DELETE FROM er.Comment WHERE commentid=@Id", new { Id = id });
             }
         }
 
@@ -73,7 +73,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Query("UPDATE Comment SET shorttext = @, body = @body, userid = @userid, contentid = @contentid WHERE commentid = @Id", item);
+                dbConnection.Query("UPDATE er.Comment SET shorttext = @shorttext, body = @body, userid = @userid, contentid = @contentid WHERE commentid = @commentid", item);
             }
         }
     }

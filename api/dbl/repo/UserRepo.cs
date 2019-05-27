@@ -31,8 +31,8 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute(@"INSERT INTO er.User (userid, Username) 
-                                    VALUES(@userid, @username,)", item);
+                dbConnection.Execute(@"INSERT INTO er.User (Username) 
+                                    VALUES(@username)", item);
             }
 
         }
@@ -55,7 +55,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<User>("SELECT * FROM User WHERE Userid = @Id", new { Id = id }).FirstOrDefault();
+                return dbConnection.Query<User>("SELECT * FROM er.User WHERE Userid = @Id", new { Id = id }).FirstOrDefault();
             }
         }
 
@@ -64,7 +64,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("DELETE FROM User WHERE Userid=@Id", new { Id = id });
+                dbConnection.Execute("DELETE FROM er.User WHERE Userid=@Id", new { Id = id });
             }
         }
 
@@ -73,7 +73,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Query("UPDATE User SET username = @username WHERE Userid = @Id", item);
+                dbConnection.Query("UPDATE er.User SET username = @username WHERE userid = @userid", item);
             }
         }
     }

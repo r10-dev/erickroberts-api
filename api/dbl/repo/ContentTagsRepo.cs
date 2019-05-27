@@ -31,8 +31,8 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute(@"INSERT INTO contenttags(url, contentid, description, tags)
-                                    VALUES(@url,@contentid,@description, @tags)", item);
+                dbConnection.Execute(@"INSERT INTO er.contenttags(url, description, tags)
+                                    VALUES(@url,@description, @tags)", item);
             }
 
         }
@@ -55,7 +55,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<ContentTags>("SELECT * FROM ContentTags WHERE contenttagsid = @Id", new { Id = id }).FirstOrDefault();
+                return dbConnection.Query<ContentTags>("SELECT * FROM er.ContentTags WHERE contenttagid = @Id", new { Id = id }).FirstOrDefault();
             }
         }
 
@@ -64,7 +64,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("DELETE FROM ContentTags WHERE ContentTagsid=@Id", new { Id = id });
+                dbConnection.Execute("DELETE FROM er.ContentTags WHERE contenttagid=@Id", new { Id = id });
             }
         }
 
@@ -73,7 +73,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Query("UPDATE ContentTags SET url = @url contentid = @contentid, description = @description, tags = @tags WHERE contenttagsid = @Id", item);
+                dbConnection.Query("UPDATE er.ContentTags SET url = @url, description = @description, tags = @tags WHERE contenttagid = @contenttagid", item);
             }
         }
     }

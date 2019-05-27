@@ -74,8 +74,9 @@ namespace test.dbl.repotests
         [TestMethod]
         public void CanAnAuthorBeDeleted()
         {
-            _testRepo.Remove(12);
-            var author = _testRepo.FindByID(12);
+            var maxid = (int)_testRepo.FindAll().Max(m=>m.authorid);
+            _testRepo.Remove(maxid);
+            var author = _testRepo.FindByID(maxid);
             
             var expectedAuthor = new Author();
             Assert.IsNull(author);

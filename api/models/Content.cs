@@ -5,6 +5,7 @@ namespace api.models {
         public int contentid { get; set; }
         public string slug { get; set; }
         public int authorid { get; set; }
+        public string body { get; set; }
         public string title { get; set; }
         public string headerimage { get; set; }
         public string tabimage { get; set; }

@@ -56,7 +56,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Content>("SELECT * FROM Content WHERE contentid = @Id", new { Id = id }).FirstOrDefault();
+                return dbConnection.Query<Content>("SELECT * FROM er.content WHERE contentid = @Id", new { Id = id }).FirstOrDefault();
             }
         }
 
@@ -65,7 +65,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("DELETE FROM Content WHERE contentid=@Id", new { Id = id });
+                dbConnection.Execute("DELETE FROM er.Content WHERE contentid=@Id", new { Id = id });
             }
         }
 
@@ -74,7 +74,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Query("UPDATE Content SET slug = @slug, authorid = @authorid, title = @title, headerimage = @headerimage, tabimage = @tabimage, views = @views, stars = @stars, body = @body, published = @published, staged = @staged, draft = @draft, created_on = @created_on, published_on = @created_on WHERE contentid = @Id", item);
+                dbConnection.Query("UPDATE er.Content SET slug = @slug, authorid = @authorid, title = @title, headerimage = @headerimage, tabimage = @tabimage, views = @views, stars = @stars, body = @body, published = @published, staged = @staged, draft = @draft, created_on = @created_on, published_on = @created_on WHERE contentid = @contentid", item);
             }
         }
 

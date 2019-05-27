@@ -55,7 +55,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<UserRole>("SELECT * FROM UserRole WHERE UserRoleid = @Id", new { Id = id }).FirstOrDefault();
+                return dbConnection.Query<UserRole>("SELECT * FROM er.UserRole WHERE UserRoleid = @Id", new { Id = id }).FirstOrDefault();
             }
         }
 
@@ -64,7 +64,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("DELETE FROM UserRole WHERE UserRoleid=@Id", new { Id = id });
+                dbConnection.Execute("DELETE FROM er.UserRole WHERE UserRoleid=@Id", new { Id = id });
             }
         }
 
@@ -73,7 +73,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Query("UPDATE UserRole SET userid = @userid WHERE UserRoleid = @Id", item);
+                dbConnection.Query("UPDATE er.UserRole SET userid = @userid WHERE UserRoleid = @userroleid", item);
             }
         }
     }
