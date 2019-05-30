@@ -38,11 +38,11 @@ namespace api.Controllers
         }
 
         [HttpPost("~/api/Comment/")]
-        public void AddComment ([FromBody]Comment data)
+        public void AddComment([FromBody]Comment data)
         {
             CommentRepo.Add(data);
             _log.LogInformation($"The Comment that is added {JsonConvert.SerializeObject(data)}");
-            
+
         }
 
         [HttpPut("~/api/comment/{id}")]
@@ -51,15 +51,14 @@ namespace api.Controllers
 
             CommentRepo.Update(data);
             _log.LogInformation($"The Comment that was updated {JsonConvert.SerializeObject(data)}");
-            
+
         }
         [HttpDelete("~/api/comment/{id}")]
         public void Delete(int id)
         {
             CommentRepo.Remove(id);
             _log.LogInformation($"The Comment that was deleted {id.ToString()}");
-            
+
         }
-    }
     }
 }
