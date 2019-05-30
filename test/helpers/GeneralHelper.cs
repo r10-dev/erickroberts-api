@@ -1,8 +1,11 @@
 using System;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+
+
 namespace test.helpers
 {
-    public class GeneralHelpers
+    public static class GeneralHelpers
     {
 
 
@@ -14,6 +17,5 @@ namespace test.helpers
                 return config;
         }
 
-       
     }
 }

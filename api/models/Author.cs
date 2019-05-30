@@ -12,7 +12,7 @@ namespace api.models
  
         public string authorimage { get; set; }
 
-        public int roleid { get; set; }
+        public int userid { get; set; }
     }
 
 }

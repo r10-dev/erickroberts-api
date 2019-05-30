@@ -28,7 +28,7 @@ namespace api.Controllers
         [HttpGet("~/api/getall/author/")]
         public IActionResult GetAuthors()
         {
-            _log.LogInformation(authorRepo.getConnectionString());
+            
             return Ok(authorRepo.FindAll());
         }
         [HttpGet("~/api/author/{id}")]
@@ -38,11 +38,12 @@ namespace api.Controllers
         }
 
         [HttpPost("~/api/author/")]
-        public void AddAuthor ([FromBody]Author data)
+        public bool AddAuthor ([FromBody]Author data)
         {
             authorRepo.Add(data);
             _log.LogInformation($"The author that is added {JsonConvert.SerializeObject(data)}");
             
+            return true;
         }
 
         [HttpPut("~/api/author/{id}")]

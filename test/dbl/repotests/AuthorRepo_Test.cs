@@ -44,7 +44,7 @@ namespace test.dbl.repotests
                 authorid = 99,
                 authorimage = "Some image from test",
                 authorname = "Some Name from test",
-                roleid = 1
+                userid = 1
             };
             _testRepo.Add(a);
 
@@ -61,7 +61,7 @@ namespace test.dbl.repotests
                 authorid = 1,
                 authorimage = "jordans picture",
                 authorname = "jordan roberts",
-                roleid = 10
+                userid = 10
             };
             _testRepo.Update(a);
 
