@@ -8,8 +8,8 @@ namespace api.dbl.repo
     using System.Data;
     using Npgsql;
     using Microsoft.Extensions.Logging;
-
-    public class ContentTagsRepo : IRepository<ContentTags>
+    using api.dbl.repo.interfaces;
+    public class ContentTagsRepo : IContentTagsRepo
     {
         private string connectionString;
 

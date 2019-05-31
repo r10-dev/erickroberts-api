@@ -8,8 +8,9 @@ namespace api.dbl.repo
     using System.Data;
     using Npgsql;
     using Microsoft.Extensions.Logging;
+    using api.dbl.repo.interfaces;
 
-    public class AuthorRepo : IRepository<Author>
+    public class AuthorRepo : IAuthorRepo
     {
         private string connectionString;
 
@@ -32,7 +33,7 @@ namespace api.dbl.repo
             {
                 dbConnection.Open();
                 dbConnection.Execute(@"INSERT INTO er.author (authorname, authorimage, userid) 
-                                    VALUES(@authorname,@authorimage,@roleid)", item);
+                                    VALUES(@authorname,@authorimage,@userid)", item);
             }
 
         }
@@ -73,7 +74,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Query("UPDATE er.author SET authorname = @authorname,  authorimage  = @authorimage, userid= @roleid WHERE authorid = @authorid", item);
+                dbConnection.Query("UPDATE er.author SET authorname = @authorname,  authorimage  = @authorimage, userid= @userid WHERE authorid = @authorid", item);
             }
         }
     }

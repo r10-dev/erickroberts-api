@@ -8,8 +8,9 @@ namespace api.dbl.repo
     using System.Data;
     using Npgsql;
     using Microsoft.Extensions.Logging;
+    using api.dbl.repo.interfaces;
 
-    public class UserRepo : IRepository<User>
+    public class UserRepo : IUserRepo
     {
         private string connectionString;
 

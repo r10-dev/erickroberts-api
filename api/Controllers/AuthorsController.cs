@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.dbl.repo;
+using api.dbl.repo.interfaces;
 using api.models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,12 +18,12 @@ namespace api.Controllers
     [Produces("application/json")]
     public class AuthorsController : ControllerBase
     {
-        private AuthorRepo authorRepo;
+        private IAuthorRepo authorRepo;
         private ILogger<AuthorsController> _log;
 
-        public AuthorsController(IConfiguration config, ILogger<AuthorsController> log)
+        public AuthorsController(ILogger<AuthorsController> log, IAuthorRepo repo)
         {
-            authorRepo = new AuthorRepo(config);
+            authorRepo = repo;
             _log = log;
         }
         [HttpGet("~/api/getall/author/")]

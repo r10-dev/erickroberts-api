@@ -8,8 +8,9 @@ namespace api.dbl.repo
     using System.Data;
     using Npgsql;
     using Microsoft.Extensions.Logging;
+    using api.dbl.repo.interfaces;
 
-    public class CommentRepo : IRepository<Comment>
+    public class CommentRepo : ICommentRepo
     {
         private string connectionString;
 

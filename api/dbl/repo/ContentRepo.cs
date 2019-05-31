@@ -8,9 +8,9 @@ namespace api.dbl.repo
     using System.Data;
     using Npgsql;
     using Microsoft.Extensions.Logging;
-
-    public class ContentRepo : IRepository<Content>
-    { 
+    using api.dbl.repo.interfaces;
+    public class ContentRepo : IContentRepo
+    {
         private string connectionString;
 
         public ContentRepo(IConfiguration configuration)
@@ -34,7 +34,7 @@ namespace api.dbl.repo
                 dbConnection.Execute(@"INSERT INTO er.content
                                         (slug, authorid, title, headerimage, tabimage, views, stars, body, published, staged, draft, created_on, published_on)
                                         VALUES(@slug, @authorid, @title, @headerimage, @tabimage, @views, @stars, @body, @published, @staged, @draft, @created_on, @published_on)", item);
-                                                    }
+            }
 
         }
         public string getConnectionString()
@@ -74,7 +74,7 @@ namespace api.dbl.repo
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Query("UPDATE er.Content SET slug = @slug, authorid = @authorid, title = @title, headerimage = @headerimage, tabimage = @tabimage, views = @views, stars = @stars, body = @body, published = @published, staged = @staged, draft = @draft, created_on = @created_on, published_on = @created_on WHERE contentid = @contentid", item);
+                dbConnection.Query("UPDATE er.Content SET slug = @slug, authorid = @authorid, title = @title, headerimage = @headerimage, tabimage = @tabimage, views = @views, stars = @stars, body = @body, published = @published, staged = @staged, draft = @draft, created_on = @created_on, published_on = @published_on WHERE contentid = @contentid", item);
             }
         }
 

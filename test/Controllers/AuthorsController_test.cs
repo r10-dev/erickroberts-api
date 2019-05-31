@@ -15,22 +15,19 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Moq;
 using api.Controllers;
+using api.dbl.repo.interfaces;
 
 namespace test.Controllers
 {
     [TestClass]
     public class AuthorsController_test
     {
-        private IConfiguration _config;
-        private ILogger _logger;
-        
         public IAuthorRepo _mockrepo;
 
         [TestInitialize]
         public void Setup()
         {
-            _logger = Mock.Of<ILogger<AuthorsController>>();
-            _config = Mock.Of<IConfiguration>();
+            
             IList<Author> author = new List<Author>{
                new Author{authorid = 1, authorimage = "ericks image", authorname="erick roberts", userid = 1},
                new Author{authorid = 2, authorimage = "sams image", authorname="Sam roberts", userid = 2},
@@ -67,11 +64,59 @@ namespace test.Controllers
         [TestMethod]
         public void ShouldReturnAListFromFindAll()
         {
-            //arrange
+            //arrange - act
             var list = _mockrepo.FindAll();
 
+            //assert
             Assert.AreEqual(5, list.Count());
             
+        }
+        [TestMethod]
+        public void ShouldReturnAuthorNameForID()
+        {
+           //arrange - act
+            var thisAuthor = _mockrepo.FindByID(1);
+
+            //act
+            Assert.AreEqual("erick roberts", thisAuthor.authorname);
+
+        }
+        [TestMethod]
+        public void ShouldAddANewAuthorToList()
+        {
+            //arrange
+            var newitem = new Author{authorid = 150, authorimage = "test image from add new", authorname="newly added author", userid = 150};
+
+            //act
+            _mockrepo.Add(newitem);
+            var obj = _mockrepo.FindByID(150);
+            //assert
+            Assert.AreEqual("newly added author", obj.authorname);
+        }
+        [TestMethod]
+        public void ShouldUpdateExistingAuthor()
+        {
+            //arrange
+            var updatedItem = new Author{authorid = 2, authorimage = "test image from update author", authorname="updated author from update", userid = 2};
+
+            //act
+            _mockrepo.Update(updatedItem);
+            var obj = _mockrepo.FindByID(2);
+            //assert
+
+            Assert.AreEqual("updated author from update", obj.authorname);
+
+        }
+        [TestMethod]
+        public void ShouldRemoveTheAuthorByID()
+        {
+            //arrange - act
+            _mockrepo.Remove(2);
+            
+            
+            //assert that there is not an id by the value of 2
+            Assert.ThrowsException<InvalidOperationException>(() =>_mockrepo.FindByID(2));
+           
         }
     }
 

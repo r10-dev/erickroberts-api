@@ -9,8 +9,8 @@ namespace api.dbl.repo
     using Npgsql;
     using Microsoft.Extensions.Logging;
     using Newtonsoft.Json;
-
-    public class RoleRepo : IRepository<Role>
+    using api.dbl.repo.interfaces;
+    public class RoleRepo : IRoleRepo
     {
         private string connectionString;
 

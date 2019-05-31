@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using api.models;
 
-namespace api.dbl.repo
+namespace api.dbl.repo.interfaces
 {
 public interface IAuthorRepo
     {
