@@ -37,6 +37,20 @@ namespace api.dbl.repo
             }
 
         }
+
+        public void AddNewUser(UserViewModel data)
+        {  
+            using (IDbConnection dbConnection = Connection)
+            {
+                dbConnection.Open();
+                dbConnection.Query($@"CALL er.csp_create_new_user(
+                    '{data.username}'::varchar, '{data.password}'::varchar, 
+                    '{data.roleselected}'::varchar, {data.isauthor}::boolean, 
+                    '{data.email}'::varchar)"
+                );
+            }
+
+        }
         public string getConnectionString()
         {
             return $"ConnectionString: {connectionString}";
@@ -75,6 +89,15 @@ namespace api.dbl.repo
             {
                 dbConnection.Open();
                 dbConnection.Query("UPDATE er.User SET username = @username WHERE userid = @userid", item);
+            }
+        }
+
+        public bool UserLogin(UserLogin login)
+        {
+              using (IDbConnection dbConnection = Connection)
+            {
+                dbConnection.Open();
+                return dbConnection.Query<bool>($"select * from er.csp_user_login('{login.username}'::varchar, '{login.password}'::varchar);").FirstOrDefault();
             }
         }
     }

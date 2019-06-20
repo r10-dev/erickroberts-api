@@ -10,6 +10,8 @@ public interface IUserRepo
         void Update(User item);
         User FindByID(int id);
         IEnumerable<User> FindAll();
+        void AddNewUser(UserViewModel data);
+        bool UserLogin(UserLogin login);
     }
 }
 

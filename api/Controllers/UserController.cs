@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.dbl.repo;
 using api.models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ namespace api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]   
+    [EnableCors("SiteCorsPol")]
     public class UserController : ControllerBase
     {
         private UserRepo UserRepo;
@@ -38,11 +40,19 @@ namespace api.Controllers
         }
 
         [HttpPost("~/api/User/")]
-        public void AddUser([FromBody]User data)
+        public void AddUser([FromBody]UserViewModel data)
         {
-            UserRepo.Add(data);
+            UserRepo.AddNewUser(data);
             _log.LogInformation($"The User that is added {JsonConvert.SerializeObject(data)}");
 
+        }
+        
+        [HttpPost("~/api/userlogin/")]
+        public IActionResult UserLogin([FromBody]UserLogin login)
+        {
+            UserRepo.UserLogin(login); 
+
+            return Ok("{'message':'Login Successful'}");
         }
 
         [HttpPut("~/api/User/{id}")]
